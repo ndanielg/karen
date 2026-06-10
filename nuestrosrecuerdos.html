@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nuestros Recuerdos</title>
+    <style>
+      :root {
+        --bg: #fff7e8;
+        --card: rgba(255, 255, 255, 0.9);
+        --text: #5f4528;
+        --accent: #ffb347;
+        --accent-2: #f28c28;
+        --soft: #fff3d6;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text);
+        background: linear-gradient(135deg, #fff8eb, #ffe7b5 45%, #fff2cd);
+        min-height: 100vh;
+        padding: 24px 16px 40px;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      body::before,
+      body::after {
+        content: "🌻";
+        position: fixed;
+        font-size: 3rem;
+        opacity: 0.24;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      body::before {
+        top: 18px;
+        right: 20px;
+        transform: rotate(15deg);
+      }
+
+      body::after {
+        bottom: 20px;
+        left: 20px;
+        transform: rotate(-12deg);
+      }
+
+      .page {
+        max-width: 980px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 24px;
+        padding: 24px;
+        box-shadow: 0 20px 50px rgba(140, 96, 33, 0.15);
+        backdrop-filter: blur(14px);
+      }
+
+      .spotify-box,
+      .carousel-box,
+      .date-box,
+      .poem-box {
+        margin-bottom: 24px;
+        padding: 18px;
+        border-radius: 18px;
+        background: var(--soft);
+        border: 1px solid rgba(242, 140, 40, 0.16);
+      }
+
+      h1,
+      h2 {
+        margin-top: 0;
+      }
+
+      .spotify-box iframe {
+        width: 100%;
+        height: 152px;
+        border: 0;
+        border-radius: 12px;
+      }
+
+      .carousel {
+        position: relative;
+        overflow: hidden;
+        border-radius: 16px;
+      }
+
+      .track {
+        display: flex;
+        transition: transform 0.6s ease;
+      }
+
+      .track img {
+        width: 100%;
+        min-width: 100%;
+        height: 320px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .controls {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .controls button {
+        border: 0;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: white;
+        padding: 8px 14px;
+        border-radius: 999px;
+        cursor: pointer;
+        font-size: 1rem;
+        box-shadow: 0 8px 16px rgba(242, 140, 40, 0.2);
+      }
+
+      .date-box {
+        text-align: center;
+      }
+
+      .date-box .date {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #b76d16;
+        margin: 8px 0 0;
+      }
+      .date {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #b76d16;
+        margin: 8px 0 0;
+        text-align: center;
+      }
+
+      .poem-box p {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        font-style: italic;
+        margin: 0;
+        text-align: center;
+      }
+
+      @media (max-width: 640px) {
+        .card {
+          padding: 18px;
+        }
+
+        .track img {
+          height: 240px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="card">
+        <section class="spotify-box">
+          <h2>Nuestra canción 🌻</h2>
+          <iframe
+            src="https://open.spotify.com/embed/track/68zSzKkU28AfZvr5FkAUWT?utm_source=generator"
+            allowfullscreen
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </section>
+
+        <section class="carousel-box">
+          <h2>Nuestros recuerdos</h2>
+          <div class="carousel">
+            <div class="track" id="track">
+              <img src="assets/1.jpg" alt="Pareja caminando"/>
+              <img src="assets/2.jpg" alt="Pareja caminando"/>
+              <img src="assets/3.jpg" alt="Pareja caminando"/>
+              <img src="assets/4.jpg" alt="Pareja caminando"/>
+              <img src="assets/5.jpg" alt="Pareja caminando"/>
+            </div>
+          </div>
+          <div class="controls">
+            <button type="button" data-dir="-1">◀</button>
+            <button type="button" data-dir="1">▶</button>
+          </div>
+        </section>
+
+        <section class="date-box">
+          <h2>25 de abril de 2026</h2>
+          <p>Han sido los mejores días de mi vida.</p>
+        </section>
+
+        <section class="poem-box">
+          <h2 class="date">Te amo mi amor (Karen)</h2>
+          <p class="poem">
+            Parece poco tiempo, pero cuando pienso en todo lo que hemos vivido, siento que hemos llenado estos meses de recuerdos inolvidables. <br/><br/>
+Desde nuestro primer beso en la librería, nuestro viaje a las cabañas, nuestras salidas al cine, nuestras caminatas por el bosque y cada escapada a nuestro lugar seguro, he descubierto una versión de la vida mucho más bonita porque la comparto contigo. <br/><br/>
+Me encanta conocer tu mundo y abrirte las puertas del mío. Me encanta que cada aventura, por simple que parezca, se convierta en una historia que quiero recordar.<br/><br/>
+Hemos compartido risas, conversaciones, momentos simples y también algunos desafíos. Y si algo he aprendido en este tiempo, es que lo más valioso no es que todo sea perfecto, sino que siempre encontremos la forma de seguir caminando juntos.<br/><br/>
+Gracias por estos dos meses, por tu amor, tu compañía y por cada momento que hemos construido juntos. Hoy celebro estos dos meses, pero sobre todo celebro la suerte de tenerte en mi vida.<br/><br/>
+Te amo, amor. ❤️<br/>
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      const track = document.getElementById("track");
+      const buttons = document.querySelectorAll("[data-dir]");
+      const slides = track.children.length;
+      let currentIndex = 0;
+
+      function render() {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const direction = Number(button.getAttribute("data-dir"));
+          currentIndex = (currentIndex + direction + slides) % slides;
+          render();
+        });
+      });
+
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides;
+        render();
+      }, 5000);
+
+      render();
+    </script>
+  </body>
+</html>

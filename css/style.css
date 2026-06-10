@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #5f4528;
+  background: linear-gradient(135deg, #fff8eb, #ffe7b5 45%, #fff2cd);
+  overflow: hidden;
+  position: relative;
+}
+
+body::before,
+body::after {
+  content: "🌻";
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.24;
+  pointer-events: none;
+}
+
+body::before {
+  top: 24px;
+  right: 24px;
+  transform: rotate(15deg);
+}
+
+body::after {
+  bottom: 24px;
+  left: 24px;
+  transform: rotate(-12deg);
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  padding: 48px 36px;
+  text-align: center;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 60px rgba(140, 96, 33, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  animation: floatIn 1s ease-out;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.8rem;
+  color: #b76d16;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin: 14px auto 22px;
+  font-size: 1.05rem;
+  color: #7a5733;
+  max-width: 560px;
+}
+
+.couple-image {
+  margin: 18px 0 20px;
+}
+
+.couple-image img {
+  width: min(100%, 260px);
+  height: 220px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(140, 96, 33, 0.18);
+  border: 3px solid #fff4d6;
+}
+
+.message {
+  margin: 0 auto 28px;
+  max-width: 580px;
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: #6f5332;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 999px;
+  color: white;
+  background: linear-gradient(135deg, #ffb347, #f28c28);
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 10px 24px rgba(242, 140, 40, 0.2);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(242, 140, 40, 0.25);
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
